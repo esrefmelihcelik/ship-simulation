@@ -1,13 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
-
+echo =============================
 echo Git Recursive Project Updater
 echo =============================
 
-set /p BASE_DIR="Enter root directory to scan [D:\Intellij IDEA Projects]: "
+set /p BASE_DIR="Enter root directory to scan [Leave it empty for the default directory: 'D:\Intellij IDEA Projects']: "
 if "!BASE_DIR!"=="" set BASE_DIR=D:\Intellij IDEA Projects
 
-set /p BRANCH_NAME="Enter branch name [main]: "
+set /p BRANCH_NAME="Enter branch name [Leave it empty for the default branch: 'main']: "
 if "!BRANCH_NAME!"=="" set BRANCH_NAME=main
 
 if not exist "!BASE_DIR!\" (
@@ -82,4 +82,5 @@ echo FINAL RESULTS:
 echo Total processed: !CURRENT!
 echo Successful: !SUCCESS!
 echo Failed: !FAIL!
+echo =============================
 timeout /t 3 /nobreak >nul

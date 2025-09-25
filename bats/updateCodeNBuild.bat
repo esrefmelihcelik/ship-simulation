@@ -5,7 +5,7 @@ echo Starting batch file execution sequence...
 echo.
 
 :: List of batch files to execute (modify this list as needed)
-set "batch_files=multipleFetchNPull.bat clean-install.bat"
+set "batch_files=multipleFetchNPull.bat update-versions.bat clean-install.bat"
 
 :: Counter for tracking progress
 set count=0

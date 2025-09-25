@@ -1,9 +1,9 @@
 
 @echo off
 echo =============================
-echo Maven Project Builder
+echo Maven Version Updater
 echo =============================
-set /p BASE_DIR="Enter root directory to scan [Leave it empty for the default directory: 'D:\Intellij IDEA Projects']: "
+set /p BASE_DIR="Enter root directory [Leave it empty for the default directory: 'D:\Intellij IDEA Projects']: "
 if "!BASE_DIR!"=="" set BASE_DIR=D:\Intellij IDEA Projects
 
 echo Root directory is set to: '%BASE_DIR%'
@@ -22,7 +22,7 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo All maven builds completed!
+echo All version updates completed!
 echo =============================
 timeout /t 3 /nobreak >nul
 
