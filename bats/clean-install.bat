@@ -1,3 +1,4 @@
+
 @echo off
 
 echo Starting build processes.
@@ -22,4 +23,5 @@ if %errorlevel% neq 0 (
 
 echo All maven builds completed!
 
-pause
+timeout /t 3 /nobreak >nul
+

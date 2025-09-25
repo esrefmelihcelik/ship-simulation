@@ -82,4 +82,4 @@ echo FINAL RESULTS:
 echo Total processed: !CURRENT!
 echo Successful: !SUCCESS!
 echo Failed: !FAIL!
-pause
+timeout /t 3 /nobreak >nul
