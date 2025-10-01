@@ -29,5 +29,7 @@ public class TextFieldMaxLength extends JTextField {
     });
   }
 
-
+  public int getMaxLength() {
+    return maxLength;
+  }
 }

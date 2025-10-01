@@ -10,6 +10,7 @@ import javax.swing.event.DocumentListener;
 public class NumericTextFieldFixedDigit extends JTextField {
 
   private final int requiredLength;
+  private final Color backgroundColor;
 
   public NumericTextFieldFixedDigit(String name, int requiredLength) {
     this.requiredLength = requiredLength;
@@ -17,6 +18,7 @@ public class NumericTextFieldFixedDigit extends JTextField {
     this.setColumns(20);
     this.setToolTipText("Must be a " + this.requiredLength + " digit number.");
     attachListeners();
+    this.backgroundColor = new Color(getBackground().getRGB());
   }
 
   private void attachListeners() {
@@ -63,14 +65,17 @@ public class NumericTextFieldFixedDigit extends JTextField {
   private void updateTextFieldColor() {
     String text = getText();
     if (text.isEmpty()) {
-      setBackground(Color.WHITE);
+      setBackground(backgroundColor);
       return;
     }
     if (text.length() == requiredLength) {
-      setBackground(new Color(151, 255, 154));
+      setBackground(new Color(21, 41, 25));
     } else {
-      setBackground(new Color(255, 151, 151));
+      setBackground(new Color(69, 16, 16));
     }
   }
 
+  public int getRequiredLength() {
+    return requiredLength;
+  }
 }

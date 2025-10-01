@@ -12,6 +12,7 @@ public class NumericTextFieldFixedRangeDecimal extends JTextField {
   private static final int MAX_LENGTH = 4;
   private final double minValue;
   private final double maxValue;
+  private final Color backgroundColor;
 
   public NumericTextFieldFixedRangeDecimal(String name, double minValue, double maxValue) {
     this.minValue = minValue;
@@ -22,6 +23,7 @@ public class NumericTextFieldFixedRangeDecimal extends JTextField {
     PlainDocument doc = (PlainDocument) this.getDocument();
     doc.setDocumentFilter(new DecimalDigitDocumentFilter(MAX_LENGTH, this.maxValue));
     attachListeners();
+    this.backgroundColor = new Color(getBackground().getRGB());
   }
 
   private void attachListeners() {
@@ -47,19 +49,26 @@ public class NumericTextFieldFixedRangeDecimal extends JTextField {
   private void updateTextFieldColor() {
     String text = getText();
     if (text.isEmpty()) {
-      setBackground(Color.WHITE);
+      setBackground(backgroundColor);
       return;
     }
     try {
       double value = Double.parseDouble(text);
       if (value >= minValue && value <= maxValue) {
-        setBackground(new Color(151, 255, 154));
+        setBackground(new Color(21, 41, 25));
       } else {
-        setBackground(new Color(255, 151, 151));
+        setBackground(new Color(69, 16, 16));
       }
     } catch (NumberFormatException e) {
-      setBackground(Color.WHITE);
+      setBackground(backgroundColor);
     }
   }
 
+  public double getMinValue() {
+    return minValue;
+  }
+
+  public double getMaxValue() {
+    return maxValue;
+  }
 }

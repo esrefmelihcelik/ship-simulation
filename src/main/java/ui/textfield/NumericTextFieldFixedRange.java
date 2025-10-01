@@ -11,6 +11,7 @@ public class NumericTextFieldFixedRange extends JTextField {
 
   private final int minValue;
   private final int maxValue;
+  private final Color backgroundColor;
 
   public NumericTextFieldFixedRange(String name, int minValue, int maxValue) {
     this.minValue = minValue;
@@ -19,6 +20,7 @@ public class NumericTextFieldFixedRange extends JTextField {
     this.setColumns(20);
     this.setToolTipText("Must be a number between [" + this.minValue + ", " + this.maxValue + "]");
     attachListeners();
+    this.backgroundColor = new Color(getBackground().getRGB());
   }
 
   private void attachListeners() {
@@ -71,18 +73,26 @@ public class NumericTextFieldFixedRange extends JTextField {
   private void updateTextFieldColor() {
     String text = getText();
     if (text.isEmpty()) {
-      setBackground(Color.WHITE);
+      setBackground(backgroundColor);
       return;
     }
     try {
       long value = Long.parseLong(text);
       if (value >= minValue && value <= maxValue) {
-        setBackground(new Color(151, 255, 154));
+        setBackground(new Color(21, 41, 25));
       } else {
-        setBackground(new Color(255, 151, 151));
+        setBackground(new Color(69, 16, 16));
       }
     } catch (NumberFormatException e) {
-      setBackground(Color.WHITE);
+      setBackground(backgroundColor);
     }
+  }
+
+  public int getMinValue() {
+    return minValue;
+  }
+
+  public int getMaxValue() {
+    return maxValue;
   }
 }

@@ -3,6 +3,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import panel.ShipCreationPanel;
 
 public class Main {
 
